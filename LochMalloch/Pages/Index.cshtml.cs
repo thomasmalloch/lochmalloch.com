@@ -1,7 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using LochMalloch.Classes;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace lochmalloch.com.Pages
+namespace LochMalloch.Pages
 {
     public class IndexModel : PageModel
     {
@@ -13,8 +15,7 @@ namespace lochmalloch.com.Pages
         }
 
         public void OnGet()
-        {
-
-        }
+        {            
+        }        
     }
 }
