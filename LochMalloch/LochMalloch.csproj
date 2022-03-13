@@ -19,7 +19,6 @@
   <ItemGroup>
     <PackageReference Include="BenchmarkDotNet" Version="0.13.1" />
     <PackageReference Include="BenchmarkDotNet.Annotations" Version="0.13.1" />
-    <PackageReference Include="BuildWebCompiler2022" Version="1.14.7" />
     <PackageReference Include="Konscious.Security.Cryptography.Argon2" Version="1.2.1" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.14.0" />
   </ItemGroup>
