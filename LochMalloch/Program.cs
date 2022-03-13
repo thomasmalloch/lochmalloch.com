@@ -1,4 +1,6 @@
 using Microsoft.Extensions.FileProviders;
+using Microsoft.AspNetCore.HttpOverrides;
+using System.Net;
 
 namespace LochMalloch
 {
@@ -10,10 +12,15 @@ namespace LochMalloch
 
             // Add services to the container.
             builder.Services.AddRazorPages();
+            builder.Services.Configure<ForwardedHeadersOptions>(options =>
+            {
+                options.KnownProxies.Add(IPAddress.Parse("10.0.0.100"));
+            });
 
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
+            app.UseForwardedHeaders();
             if (!app.Environment.IsDevelopment())
             {
                 app.UseExceptionHandler("/Error");
@@ -21,7 +28,7 @@ namespace LochMalloch
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
 
             app.UseStaticFiles();
             app.UseStaticFiles(new StaticFileOptions
@@ -49,6 +56,12 @@ namespace LochMalloch
             });
 
             app.UseRouting();
+
+            app.UseForwardedHeaders(new ForwardedHeadersOptions
+            {
+                ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+            });
+            
             app.UseAuthorization();
             app.MapRazorPages();
             app.Run();
