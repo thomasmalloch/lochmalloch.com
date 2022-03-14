@@ -1,0 +1,131 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model List<Models.ProjectModel>
+@{
+}
+
+<section>
+    <header class="fixed-top">
+        <div class="container-fluid container-fluid-max">
+            <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary w-100">
+                <a class="navbar-brand mb-0 h1" href=#">NGP</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">                        
+                        <a class="nav-link active" href="#fullscreen-card-0">Projects</a>
+                        <a id="about-link" class="nav-link" href="#">About</a>
+                        <a id="contact-link" class="nav-link" href="#">Contact</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+</section>
+
+
+<!-- Hero -->
+<section id="home">
+    <!-- 75% Hero -->
+    <div class="section vh-75 over-hide">        
+        <div class="parallax" style="background-image:url('/images/pexels-josh-sorenson-1714208.jpg'); background-position: 50% 0px;">
+            <div class="hero-bottom-wrap text-center z-bigger">
+                <div class="container-fluid container-fluid-max parallax-fade-top">
+                    <div class="col-12">
+                        <h2 class="hero-text text-center">Novagetan <span class="next-line-sm">Productions</span></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 25% Slogan -->
+    <div class="section vh-25 z-bigger-2">
+        <div class="container-fluid container-fluid-max">
+            <div class="col-12">
+                <div class="text-center mt-5">
+                    <h3 class="mb-4">Development Resources</h3>
+                    <a class="btn btn-primary" href="#fullscreen-card-0" role="button">Projects</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Projects -->
+
+@for(int i = 0; i < Model.Count; i++)
+{
+    Models.ProjectModel project = Model[i];
+    @Html.DisplayText($"<div id=\"fullscreen-card-{ i }\" class=\"offset\">");
+    @Html.Display("<section class=\"d-flex position-relative vh-100\">");
+        
+    <div class="container-fluid container-fluid-max">
+        <div class="row no-gutters h-100">
+        @if((i % 2) == 0)
+        {
+            @Html.Display("<div class=\"order-sm-last order-md-last vh-md-50 col-md-12 vh-lg-100 col-lg-6 order-lg-first\">");
+        }
+        else
+        { 
+            @Html.Display("<div class=\"order-sm-last order-md-last vh-md-50 col-md-12 vh-lg-100 col-lg-6 order-lg-last\">");
+        }
+                                                    
+                <div class="row h-75">
+                    <div class="p-5">
+                        <h1>@project.Name</h1>
+                        @project.Description
+                        <a class="btn-sm btn-primary" href="#">
+                            <span>Read More</span>
+                        </a>
+                    </div>
+                </div>
+            
+                <div class="row h-25 align-items-center">
+                @if(i == Model.Count)
+                {
+                    <a class="btn-sm btn-primary mx-auto mb-5" href="#about" role="button">down</a>
+                }
+                else
+                {                    
+                    @Html.Display($"<a class=\"btn-sm btn-primary mx-auto mb-5\" href=\"#fullscreen-card-{ (i + 1) }\" role=\"button\">down</a>");                            
+                } 
+                </div>
+                
+            @Html.Display("</div>")
+            
+        @if((i % 2) == 0)
+        {
+            @Html.Display("<div class=\"order-sm-first order-md-first col-md-12 vh-sm-50 vh-md-50 vh-lg-100 col-lg-6 order-lg-last \">");                    
+        }
+        else
+        {                     
+            
+            @Html.Display("<div class=\"order-sm-first order-md-first col-md-12 vh-sm-50 vh-md-50 vh-lg-100 col-lg-6 order-lg-first \">");
+        }
+        
+            <div class="vh-lg-100 vh-sm-50 vh-md-50 cover" style="background-image:url('images/pexels-pok-rie-1432669.jpg');">
+            </div>                
+        </div>
+    </div>
+
+    @Html.Display("</section>");
+}
+
+    <a href="Zoop">THIS IS NOT A DRILL! GET TO DAH COPPAH!</a>
+
+<!-- About -->
+<div id="about" class="offset">
+    <section >
+        about
+    </section>
+</div>
+<!-- Contact -->
+<div id="contact" class="offset">
+    <section>
+        contact
+    </section>
+</div>
+

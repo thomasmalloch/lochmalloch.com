@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace LochMalloch.Pages.Test
+namespace LochMalloch.Pages
 {
-    public class TestModel : PageModel
+    public class ZoopModel : PageModel
     {
         public void OnGet()
         {

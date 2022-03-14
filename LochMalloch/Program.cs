@@ -61,8 +61,10 @@ namespace LochMalloch
             {
                 ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
             });
-            
+
+            app.UseHttpsRedirection();
             app.UseAuthorization();
+            app.MapControllers();
             app.MapRazorPages();
             app.Run();
         }
