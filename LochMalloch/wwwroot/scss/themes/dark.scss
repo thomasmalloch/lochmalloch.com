@@ -9,7 +9,7 @@ $theme-colors : (
     "dark": #1E1A1E,
 );
 
-@import "../../lib/bootstrap/scss/bootstrap.scss";
+@import "../../libs/bootstrap/scss/bootstrap.scss";
 
 body {
     background-color: #1E1A1E;
@@ -33,7 +33,7 @@ body {
     color: #A7B6C5;
 }
 
-@include media-breakpoint-between(lg, xl) {
+@include media-breakpoint-up(lg) {
     .vh-lg-100 {
         height: 100vh;
     }

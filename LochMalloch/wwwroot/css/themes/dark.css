@@ -11140,7 +11140,7 @@ body {
   color: #A7B6C5;
 }
 
-@media (min-width: 992px) and (max-width: 1199.98px) {
+@media (min-width: 992px) {
   .vh-lg-100 {
     height: 100vh;
   }
